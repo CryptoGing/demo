@@ -1,44 +1,45 @@
 # Pi Demo App Backend
 
-The only variable you need to provide is `PI_API_KEY`, which is required to authorize payments. You receive it
-upon app registration. For more guidelines on registering your app refer to
-the [Pi Developer Guide](https://pi-apps.github.io/community-developer-guide/docs/gettingStarted/devPortal/).
-
-`FRONTEND_URL` specifies the URL of the frontend app, which by default is `http://localhost:3314`.
-Depending on sandbox settings you're using to preview demo app, you may need to change this value accordingly.
-
 The demo app's backend uses a local MongoDB server to store user data and session details.
 
 ## Setup
 
 ### 1. Install dependencies:
 
-You will need a working NodeJS installation, and `yarn`. **The demo app frontend isn't meant to support npm**.
-In most cases, `yarn` will come along with your NodeJS installation.
-
 Install dependencies by running `yarn install`.
 
 
 ### 2. Set up environment variables
+The only variable you need to provide is `PI_API_KEY`, which is required to authorize payments. This can be obtained from the developer portal and more information is on our [Pi Developer Guide](https://pi-apps.github.io/community-developer-guide/docs/gettingStarted/devPortal/).
 
-The demo app's backend use several environment variables, from which most have default values. In order to specify
-these, create `.env` file in the root backend directory.
+`FRONTEND_URL` specifies the URL of the frontend app, which by default is `http://localhost:3314`.
+If you wish to deploy on a different port make sure to update the .env portal and the Development URL within the Pi Developer Portal match. 
 
+The demo app's backend uses several environment variables, from which most have default values. In order to specify these, create `.env` file in the root backend directory.
+
+<br/>
 Create your `.env` file from the template:
 
 ```shell
+# Must be within the backend directory
+# (ex. demo/backend/)
+
 cp .env.example .env
+```
+<br/>
+Edit the newly created .env 
 
+```shell
 
-# Edit the resulting file:
+# Edit the resulting file using your text editor of choice:
 vi .env
 # or:
 nano .env
 ```
 
-Obtain the following values from the developer portal:
-
 **Session secret**: Generate a random string (e.g 64 alphanumeric characters).
+
+Obtain the following value from the developer portal:
 
 **API key**: obtained by tapping the "Get API Key" button
 
@@ -54,12 +55,9 @@ PI_API_KEY=
 SESSION_SECRET=
 ```
 
-
 ### 2. Set up MongoDB
 
-The default port for MongoDB is `27017`. If you have decided to change either default port or username and password,
-make sure to update environment variables in the backend `.env` file accordingly.
-Additionally, you can specify MongoDB name env variable, which if not specified will be named `demo-app` by default.
+The default port for MongoDB is `27017`. If you have decided to change either default port or username and password, make sure to update environment variables in the backend `.env` file accordingly. Additionally, you can specify MongoDB name env variable, which if not specified will be named `demo-app` by default.
 
 **Option 1: using Docker:**
 
@@ -88,8 +86,7 @@ Then, recreate the container using the `docker run` command above.
 
 
 **Options 2: directly install MongoDB on your machine:**
-
-Install MongoDB Community following the
+You will need to install MongoDB Community following the
 [official documentation](https://www.mongodb.com/docs/manual/administration/install-community/).
 
 Run the server and create a database and a user:
@@ -115,7 +112,7 @@ db.getSiblingDB("admin").createUser(
 );
 ```
 
-To preview the database, you can use Robo3T or MongoDB Compass.
+To preview the database, you can use [Robo3T](https://robomongo.org/) or [MongoDB Compass](https://www.mongodb.com/docs/compass/current/install/).
 
 ### 3. Run the server
 
@@ -131,4 +128,4 @@ CORS config: configured to respond to a frontend hosted on http://localhost:3314
 ```
 
 ---
-You've completed the backend setup, return to [`doc/development.md`](../doc/deployment.md) to finish setting up the demo app
+You've completed the backend setup, return to [`doc/2_development.md`](../doc/2_deployment.md) to finish setting up the demo app
