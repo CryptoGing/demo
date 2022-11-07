@@ -16,4 +16,4 @@ This will open a browser window on http://localhost:3314 which you can close, si
 to run inside of the Pi Sandbox environment in order to work correctly in development.
 
 ---
-You've completed the frontend setup, return to [`doc/development.md`](../doc/development.md) to finish setting up the demo app
+You've completed the frontend setup, return to [`doc/2_development.md`](../doc/2_development.md) to finish setting up the demo app
