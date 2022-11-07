@@ -12,7 +12,7 @@ It is composed of two major parts:
 
 ## Initial Development
 
-Read [`doc/development.md`](./doc/development.md) to get started and learn how to run this app in development.
+Read [`doc/1_development.md`](./doc/1_development.md) to get started and learn how to run this app in development.
 
 > **WARNING**
 >
@@ -22,7 +22,7 @@ Read [`doc/development.md`](./doc/development.md) to get started and learn how t
 
 ## Deployment
 
-Read [`doc/deployment.md`](./doc/deployment.md) to learn how to deploy this app on a server using Docker and docker-compose.
+Read [`doc/2_deployment.md`](./doc/2_deployment.md) to learn how to deploy this app on a server using Docker and docker-compose.
 
 
 ## Flows
