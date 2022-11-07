@@ -7,20 +7,20 @@ sandbox environment.
 
 This guides assumes you have the following two tools installed on your development machine:
 
-- a NodeJS installation (recommended version: Node v16 LTS **or lower**)
+- NodeJS installation (recommended version: Node v16 LTS **or lower**)
   - if you're running with node 17 or higher, you'll need to use `yarn startNode17` to work around [this issue](https://github.com/facebook/create-react-app/issues/11562)
-- a functional Docker or Mongosh installation
+- `yarn` installation (npm is not supported for the demo app front end)
+  - most NodeJS packages will include yarn but it may be required to install separately
+- Functional [Docker Engine](https://docs.docker.com/engine/) or [Mongosh](https://www.mongodb.com/docs/mongodb-shell/) installation
 
 
-## 1. Clone the Github repo and navigate to the project directory:
+### Register your app on the developer portal
+- Create a Pi Account
+  - Required to create the credentials needed for the app to communicate with Pi Network servers
+  - Pi App is available for [Android](https://play.google.com/store/apps/details?id=com.blockchainvault) and [iOS](https://itunes.apple.com/us/app/pi-network/id1445472541).
+- Download Pi Browser
+  - Pi Browser is available for [Android](https://play.google.com/store/apps/details?id=pi.browser) and [iOS](https://apps.apple.com/us/app/pi-browser/id1560911608).
 
-```sh
-git clone git@github.com:pi-apps/platform-demo-app.git
-cd platform-demo-app
-```
-
-
-## 2. Register your app on the developer portal
 
 Open `develop.pi` in the Pi Browser, on your mobile phone, and go through the prerequisite steps
 (e.g verifying your email address).
@@ -59,18 +59,35 @@ This will bring you to the App Dashboard, from this screen you can continue the 
   - App URL: This is irrelevant for development. You can use the intended production URL of your app (e.g "https://mydemoapp.com"),
     or simply set it up to an example value (e.g "https://example.com"). This must be an HTTPs URL
   - Development URL: The URL on which your app is running on your development environment. If your using the default
-    setup for the demo 
+    setup for the demo
+    
+## Demo App Setup
 
-## 3. Run the frontend development server
+## 1. Clone the Github repo and navigate to the project directory:
+
+```sh
+git clone git@github.com:pi-apps/platform-demo-app.git
+
+cd platform-demo-app
+```
+Or 
+```sh
+git clone https://github.com/pi-apps/demo.git
+
+cd platform-demo-app
+```
+
+
+## 2. Run the frontend development server
 
 Setup the frontend app following the [Pi Demo App Frontend documentation](../frontend/README.md).
 
 
-## 4. Run the backend development server
+## 3. Run the backend development server
 
 Setup backend server following the [Pi Demo App Backend documentation](../backend/README.md).
 
-## 5. Open the app in the Sandbox
+## 4. Open the app in the Sandbox
 
 To test all of the Demo App features, you need to run it in the Pi Sandbox.
 
@@ -80,15 +97,16 @@ is meant to be opened in the Pi Browser by end-users.
 For more information on the Sandbox head to our [Community Developer Guide](https://pi-apps.github.io/community-developer-guide/docs/gettingStarted/piAppPlatform/piAppPlatformSDK/#the-sandbox-flag).
 
 Lastly, **on your desktop browser** open the sandbox URL from Step 6 of App Checklist:
+> **WARNING**
+>
+> The demo app uses express session cookies which, in the Sandbox environment, are not correctly saved on the client on some browsers.
+> To properly test all of the features of the Demo App, we recommend you to open the sandbox app using Mozilla Firefox.
+
 
 ![Sandbox URL](./img/sandbox_url.png)
 
 ![Sandbox URL](./img/sandbox_firefox.png)
 
-> **WARNING**
->
-> The demo app uses express session cookies which, in the Sandbox environment, are not correctly saved on the client on some browsers.
-> To properly test all of the features of the Demo App, we recommend you to open the sandbox app using Mozilla Firefox.
 
 #### Congratulations! The app should work in the developer portal and enable you to sign in, place an order and make a testnet payment.
 
